@@ -55,7 +55,17 @@ export default class ProjetoMapa extends Component {
           //onRegionChangeComplete={this.mapaMudou}
 
           //Evento de clique
-          onPress={e => {
+          /* onPress={e => {
+            alert(
+              'Clicou em: ' +
+                e.nativeEvent.coordinate.latitude +
+                ' X ' +
+                e.nativeEvent.coordinate.longitude,
+            );
+          }} */
+
+          //Evento de clique longo
+          onLongPress={e => {
             alert(
               'Clicou em: ' +
                 e.nativeEvent.coordinate.latitude +
