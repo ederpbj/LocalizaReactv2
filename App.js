@@ -23,7 +23,11 @@ export default class ProjetoMapa extends Component {
           //scrollEnabled={false}
 
           //Zoom mapa
-          zoomEnabled={false}
+          //zoomEnabled={false}
+
+          //Rotação
+          //rotateEnabled={false}
+
           style={styles.map}
           loadingEnabled={true}
           region={{
