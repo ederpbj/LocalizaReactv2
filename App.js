@@ -1,5 +1,6 @@
+/* eslint-disable no-alert */
 import React, {Component} from 'react';
-import {Text, StyleSheet, View, Button} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class ProjetoMapa extends Component {
@@ -14,10 +15,14 @@ export default class ProjetoMapa extends Component {
     this.mapaMudou = this.mapaMudou.bind(this);
   }
   mapaMudou(region) {
+    alert('Região mudou para: ' + region.latitude + ' X ' + region.longitude);
+
     //console.log('Region chegou');
     let state = this.state;
 
     state.txt = 'Mudou ' + region.latitude + ' X ' + region.longitude;
+    state.lat = region.latitude;
+    state.lng = region.longitude;
 
     this.setState(state);
   }
@@ -47,7 +52,17 @@ export default class ProjetoMapa extends Component {
           //onRegionChange={this.mapaMudou}
 
           //Só executa quando mapa parar
-          onRegionChangeComplete={this.mapaMudou}
+          //onRegionChangeComplete={this.mapaMudou}
+
+          //Evento de clique
+          onPress={e => {
+            alert(
+              'Clicou em: ' +
+                e.nativeEvent.coordinate.latitude +
+                ' X ' +
+                e.nativeEvent.coordinate.longitude,
+            );
+          }}
 
           style={styles.map}
           loadingEnabled={true}
