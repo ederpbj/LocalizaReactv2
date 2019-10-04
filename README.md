@@ -28,9 +28,9 @@ Tutorial maps
 
     npm install @react-native-community/geolocation --save
 
-
     react-native link @react-native-community/geolocation
 
+    import Geolocation from '@react-native-community/geolocation';
 
 
 >Não usado
