@@ -21,6 +21,9 @@ export default class ProjetoMapa extends Component {
 
           //Bloquear Mover mapa
           //scrollEnabled={false}
+
+          //Zoom mapa
+          zoomEnabled={false}
           style={styles.map}
           loadingEnabled={true}
           region={{
