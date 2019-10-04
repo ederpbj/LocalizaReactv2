@@ -14,6 +14,9 @@ export default class ProjetoMapa extends Component {
     return (
       <View style={styles.container}>
         <MapView
+          //mapType="standard"
+          //mapType="satellite"
+          mapType="hybrid"
           style={styles.map}
           loadingEnabled={true}
           region={{
