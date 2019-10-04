@@ -14,20 +14,10 @@ export default class ProjetoMapa extends Component {
     return (
       <View style={styles.container}>
         <MapView
-          //Tipos de mapa
-          //mapType="standard"
-          //mapType="satellite"
-          //mapType="hybrid"
-
-          //Bloquear Mover mapa
-          //scrollEnabled={false}
-
-          //Zoom mapa
-          //zoomEnabled={false}
-
-          //Rotação
-          //rotateEnabled={false}
-
+          //Eventos
+          onMapReady={() => {
+            alert('Mapa carregado');
+          }}
           style={styles.map}
           loadingEnabled={true}
           region={{
