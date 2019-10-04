@@ -8,16 +8,47 @@ export default class ProjetoMapa extends Component {
     this.state = {
       lat: -15.8080374,
       lng: -47.8750231,
+      txt: '',
     };
+
+    this.mapaMudou = this.mapaMudou.bind(this);
   }
+  mapaMudou(region) {
+    //console.log('Region chegou');
+    let state = this.state;
+
+    state.txt = 'Mudou ' + region.latitude + ' X ' + region.longitude;
+
+    this.setState(state);
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MapView
+          //Tipos de mapa
+          //mapType="standard"
+          //mapType="satellite"
+          //mapType="hybrid"
+
+          //Bloquear Mover mapa
+          //scrollEnabled={false}
+
+          //Zoom mapa
+          //zoomEnabled={false}
+
+          //Rotação
+          //rotateEnabled={false}
+
           //Eventos
-          onMapReady={() => {
-            alert('Mapa carregado');
-          }}
+          //onMapReady={() => { alert('Mapa carregado'); }}
+
+          //Evento mais usado, se mudar posição do mapa:
+          //onRegionChange={this.mapaMudou}
+
+          //Só executa quando mapa parar
+          onRegionChangeComplete={this.mapaMudou}
+
           style={styles.map}
           loadingEnabled={true}
           region={{
@@ -31,6 +62,10 @@ export default class ProjetoMapa extends Component {
             title="São Paulo"
           />*/}
         </MapView>
+
+        <View style={styles.info}>
+          <Text>{this.state.txt}</Text>
+        </View>
       </View>
     );
   }
@@ -41,7 +76,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   map: {
-    height: '100%',
+    height: '80%',
     width: '100%',
+  },
+  info: {
+    height: 100,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
