@@ -83,12 +83,6 @@ export default class App extends Component {
 
     //if ('geolocation' in navigator) {
     if (Geolocation) {
-      console.log("PASSA !"
-        // eslint-disable-next-line no-undef
-        //Geolocation.getCurrentPosition(this.success, this.error, options),
-        //Geolocation.getCurrentPosition(success, error, options),
-      );
-      /* geolocation is available */
       Geolocation.getCurrentPosition(this.success, this.error, options);
     } else {
       /* geolocation IS NOT available */
