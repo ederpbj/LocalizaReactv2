@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
+import PinMapa from './src/PinMapa';
+
 export default class Mapa extends Component {
   constructor(props) {
     super(props);
@@ -90,10 +92,7 @@ export default class Mapa extends Component {
           {this.state.markers.map(marker => {
             return (
               <Marker key={marker.key} coordinate={marker.coords}>
-                <View
-                  style={{backgroundColor: marker.pinColor, width: 70, height: 30}}>
-                  <Text style={{color:'#FFFFFF', fontSize:20}}>{marker.contaMedia}</Text>
-                </View>
+                <PinMapa contaMedia={marker.contaMedia} />
               </Marker>
             );
           })}
