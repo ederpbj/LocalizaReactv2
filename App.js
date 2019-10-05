@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
 export default class Mapa extends Component {
@@ -12,7 +12,7 @@ export default class Mapa extends Component {
       markers: [
         {
           key: 0,
-          image: require('./assets/images/sedan-car--down.png'),
+          contaMedia: 'R$ 10',
           coords: {
             latitude: -15.8080374,
             longitude: -47.8750231,
@@ -23,7 +23,7 @@ export default class Mapa extends Component {
         },
         {
           key: 1,
-          image: require('./assets/images/sedan-car--head-down.png'),
+          contaMedia: 'R$ 50',
           coords: {
             latitude: -15.803915663345002,
             longitude: -47.87356853485108,
@@ -34,7 +34,7 @@ export default class Mapa extends Component {
         },
         {
           key: 2,
-          image: require('./assets/images/sedan-car--left.png'),
+          contaMedia: 'R$ 75',
           coords: {
             latitude: -15.804136000720641,
             longitude: -47.87523485720157,
@@ -45,7 +45,7 @@ export default class Mapa extends Component {
         },
         {
           key: 3,
-          image: require('./assets/images/sedan-car--right.png'),
+          contaMedia: 'R$ 150',
           coords: {
             latitude: -15.80548350533809,
             longitude: -47.87428334355355,
@@ -56,7 +56,7 @@ export default class Mapa extends Component {
         },
         {
           key: 4,
-          image: require('./assets/images/sedan-car--up.png'),
+          contaMedia: 'R$ 200',
           coords: {
             latitude: -15.80700350533809,
             longitude: -47.88008334355355,
@@ -68,56 +68,10 @@ export default class Mapa extends Component {
       ],
     };
 
-    this.markerDrag = this.markerDrag.bind(this);
-    this.moverMapa = this.moverMapa.bind(this);
+    //this.markerDrag = this.markerDrag.bind(this);
+    //this.moverMapa = this.moverMapa.bind(this);
   }
 
-  /*
-   O método componentDidMount() é executado depois que a saída do componente
-   é renderizada no DOM. Este é um bom lugar para configurar um temporizador:
-   */
-  /* componentDidMount() {
-    //this.markerDrag(e);
-  } */
-
-  markerDrag(e) {
-    let state = this.state;
-    let item = e._targetInst.return.key;
-    //alert(item)
-
-    // eslint-disable-next-line no-unused-vars
-    for (let i in state.markers) {
-      //alert(state.markers[i].key)
-      // eslint-disable-next-line eqeqeq
-      if (state.markers[i].key == item) {
-        state.markers[i].coords = e.nativeEvent.coordinate;
-        state.markers[i].pinColor = '#FF0000';
-        //state.markers[i].title = 'Relou mano';
-      }
-    }
-
-    this.setState(state);
-  }
-
-  moverMapa() {
-    this.map.animateCamera(
-      {
-        latitude: -15.8100374,
-        longitude: -47.8750231,
-      },
-      2000,
-    );
-
-    //Move o mapa de forma animada
-    this.map.fitToElements(true);
-  }
-
-  /*
-  var dotImage = require('./assets/images/sedan-car.png');
-  <Marker>
-    <Image source={dotImage} style={{height: 6, width: 6}} />
-  </Marker>
-  */
   render() {
     return (
       <View style={styles.container}>
@@ -126,7 +80,6 @@ export default class Mapa extends Component {
           ref={map => {
             this.map = map;
           }}
-          //Marcar no mapa dinamicamente
           style={styles.map}
           region={{
             latitude: this.state.lat,
@@ -136,27 +89,17 @@ export default class Mapa extends Component {
           }}>
           {this.state.markers.map(marker => {
             return (
-              <Marker
-                image={marker.image}
-                //Habilita arrastar
-                draggable
-                //image={require('./assets/images/sedan-car.png')}
-                style={styles.img}
-                //Quando arrastar
-                onDragEnd={this.markerDrag}
-                key={marker.key}
-                coordinate={marker.coords}
-                pinColor={marker.pinColor}
-                title={marker.title}
-                description={marker.description}
-              />
+              <Marker key={marker.key} coordinate={marker.coords}>
+                <View
+                  style={{backgroundColor: marker.pinColor, width: 70, height: 30}}>
+                  <Text style={{color:'#FFFFFF', fontSize:20}}>{marker.contaMedia}</Text>
+                </View>
+              </Marker>
             );
           })}
         </MapView>
 
-        <View style={styles.info}>
-          <Button title="Mover mapa" onPress={this.moverMapa} />
-        </View>
+        <View style={styles.info} />
       </View>
     );
   }
