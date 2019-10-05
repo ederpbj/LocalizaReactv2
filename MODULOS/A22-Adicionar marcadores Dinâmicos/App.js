@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React, {Component} from 'react';
 import {StyleSheet, View, Button} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
