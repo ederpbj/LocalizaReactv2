@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import {StyleSheet, View, Text} from 'react-native';
+import MapView, {Marker, Callout} from 'react-native-maps';
 
 import PinMapa from './src/pinMap';
 
@@ -96,6 +96,13 @@ export default class Mapa extends Component {
                   contaMedia={marker.contaMedia}
                   fundo={marker.pinColor}
                 />
+
+                <Callout tooltip={true}>
+                  <View
+                    style={{backgroundColor: '#FF0000', width: 150, height: 100}}>
+                    <Text>XXX</Text>
+                  </View>
+                </Callout>
               </Marker>
             );
           })}
