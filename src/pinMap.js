@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 
 export default class PinMapa extends Component {
   render() {
     return (
-      <View
-        style={(pinMapStyles.quadrado, {backgroundColor: this.props.fundo, width:80})}>
-        <Text style={pinMapStyles.texto}>{this.props.contaMedia}</Text>
-      </View>
+      <Marker
+        key={this.props.key}
+        coordinate={this.props.coords}
+        pinColor={this.props.pinColor}
+        title={this.props.title}
+        description={this.props.description}
+      />
     );
   }
 }

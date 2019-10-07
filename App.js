@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
-import MapView, {Marker, Callout} from 'react-native-maps';
+import {StyleSheet, View} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 
 import PinMapa from './src/pinMap';
 
@@ -70,17 +70,27 @@ export default class Mapa extends Component {
       ],
     };
 
-    //this.markerDrag = this.markerDrag.bind(this);
-    //this.moverMapa = this.moverMapa.bind(this);
+    this.addMarker = this.addMarker.bind(this);
   }
 
-  /*
-<Callout tooltip={true}>
-<Image source={require('./assets/images/peixada.png')} />
-<Callout>
-<View
-style={{backgroundColor: '#FF0000', width: 150, height: 100}}>
-*/
+  addMarker(e) {
+    let state = this.state;
+
+    state.markers.push({
+      key: state.markers.length,
+      coords: {
+        latitude: e.nativeEvent.coordinate.latitude,
+        longitude: e.nativeEvent.coordinate.longitude,
+      },
+      pinColor: '#FF0000',
+      title: 'Novo ponto',
+      description: 'Seu ponto escolhido',
+    });
+    state.lat = e.nativeEvent.coordinate.latitude;
+    state.lng = e.nativeEvent.coordinate.longitude;
+
+    this.setState(state);
+  }
 
   render() {
     return (
@@ -91,6 +101,7 @@ style={{backgroundColor: '#FF0000', width: 150, height: 100}}>
             this.map = map;
           }}
           style={styles.map}
+          onPress={this.addMarker}
           region={{
             latitude: this.state.lat,
             longitude: this.state.lng,
@@ -99,18 +110,13 @@ style={{backgroundColor: '#FF0000', width: 150, height: 100}}>
           }}>
           {this.state.markers.map(marker => {
             return (
-              <Marker key={marker.key} coordinate={marker.coords}>
-                <PinMapa
-                  contaMedia={marker.contaMedia}
-                  fundo={marker.pinColor}
-                />
-
-                <Callout>
-                  <View style={{width: 200, height: 100}}>
-                    <Text>Texto descrição do produto</Text>
-                  </View>
-                </Callout>
-              </Marker>
+              <Marker
+                key={marker.key}
+                coordinate={marker.coords}
+                pinColor={marker.pinColor}
+                title={marker.title}
+                description={marker.description}
+              />
             );
           })}
         </MapView>
