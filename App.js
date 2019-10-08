@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
-import PinMapa from './src/pinMap';
+import Form from './src/Form';
+import Informe from './src/Informe';
+import FormYup from './src/FormYup';
+import FormA from './src/FormA';
 
 export default class Mapa extends Component {
   constructor(props) {
@@ -11,6 +14,9 @@ export default class Mapa extends Component {
       lat: -15.8080374,
       lng: -47.8750231,
       txt: '',
+      click: false,
+      titulo: '',
+      descricao: '',
       markers: [
         {
           key: 0,
@@ -71,6 +77,27 @@ export default class Mapa extends Component {
     };
 
     this.addMarker = this.addMarker.bind(this);
+    this.setMarker = this.setMarker.bind(this);
+    this.exibeInfo = this.exibeInfo.bind(this);
+  }
+
+  exibeInfo() {
+    if (this.state.click === false) {
+      return <Informe />;
+    } else {
+      //return <Form />;
+      return <FormYup titulo={this.props.titulo} />;
+    }
+
+    /* let state = this.state;
+
+    state.titulo = getValues.ti
+    this.setState(state); */
+  }
+
+  setMarker() {
+    let state = this.state;
+    alert(state.marker);
   }
 
   addMarker(e) {
@@ -88,6 +115,8 @@ export default class Mapa extends Component {
     });
     state.lat = e.nativeEvent.coordinate.latitude;
     state.lng = e.nativeEvent.coordinate.longitude;
+
+    state.click = true;
 
     this.setState(state);
   }
@@ -121,7 +150,10 @@ export default class Mapa extends Component {
           })}
         </MapView>
 
-        <View style={styles.info} />
+        <View style={styles.info}>
+          {this.exibeInfo()}
+          <Text>Titulo é: {this.state.titulo}</Text>
+        </View>
       </View>
     );
   }
@@ -135,13 +167,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   info: {
-    height: 100,
+    height: 250,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
   img: {
     height: 20,
     width: 20,
+  },
+  texto: {
+    fontSize: 15,
+    alignContent: 'center',
+    alignItems: 'center',
   },
 });

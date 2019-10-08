@@ -36,3 +36,19 @@ Tutorial maps
 >Não usado
 
     //react-native unlink react-native-maps
+
+>Exercício Aula 27, usando formulários com formik
+
+    https://blog.rocketseat.com.br/gerenciando-formularios-no-react-native/
+
+    yarn add formik
+
+>Usando Yup para form
+
+    https://medium.com/reactbrasil/formik-parte-3-valida%C3%A7%C3%B5es-de-formul%C3%A1rio-simples-descritivas-e-poderosas-em-react-713c8b7985a4
+
+>Tutorial props
+
+    http://felipegalvao.com.br/blog/2018/09/24/aprenda-react-componentes-state-e-props/
+
+    http://www.fullstackstudent.com/dynamic-react-form-with-formik/
