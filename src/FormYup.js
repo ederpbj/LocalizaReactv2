@@ -8,9 +8,12 @@ export default class AppFormik extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      t: '',
+      titulo: '',
     };
+
+    this.mudaTexto = this.mudaTexto.bind(this);
   }
+
   render() {
     return (
       <Formik
@@ -20,7 +23,6 @@ export default class AppFormik extends Component {
           //Alert.alert(JSON.stringify(values));
           /* this.state.titulo = values.titulo;
           this.state.descricao = values.descricao; */
-          this.state.t = values.titulo;
         }}
         validationSchema={yup.object().shape({
           titulo: yup.string().required('Informe o Título'),
