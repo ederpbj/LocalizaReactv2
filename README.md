@@ -52,3 +52,7 @@ Tutorial maps
     http://felipegalvao.com.br/blog/2018/09/24/aprenda-react-componentes-state-e-props/
 
     http://www.fullstackstudent.com/dynamic-react-form-with-formik/
+
+    https://blog.rocketseat.com.br/react-do-zero-componentizacao-propriedades-e-estado/
+
+    https://stackoverflow.com/questions/37949981/call-child-method-from-parent

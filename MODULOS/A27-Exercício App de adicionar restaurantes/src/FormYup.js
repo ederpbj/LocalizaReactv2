@@ -11,7 +11,7 @@ export default class AppFormik extends Component {
       titulo: '',
     };
 
-    //this.mudaTexto = this.mudaTexto.bind(this);
+    this.mudaTexto = this.mudaTexto.bind(this);
   }
 
   render() {
@@ -19,8 +19,7 @@ export default class AppFormik extends Component {
       <Formik
         initialValues={{titulo: '', descricao: ''}}
         onSubmit={values => {
-          console.log(values);
-
+          values;
           //Alert.alert(JSON.stringify(values));
           /* this.state.titulo = values.titulo;
           this.state.descricao = values.descricao; */
