@@ -1,5 +1,9 @@
 # LocalizaReactv2
 
+>Resposta b7web
+
+    usa a versão do react native 0.60 e a versão do react-native-maps 0.25.0 que não precisa fazer alteração alguma no codigo, somente é necessario inserir  a KEY da google!
+
 git 
 
     github.com/ederpbj/LocalizaReactv2
