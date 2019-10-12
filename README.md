@@ -56,3 +56,9 @@ Tutorial maps
     https://blog.rocketseat.com.br/react-do-zero-componentizacao-propriedades-e-estado/
 
     https://stackoverflow.com/questions/37949981/call-child-method-from-parent
+
+>Tentando com redux
+
+    https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
+
+    yarn add --dev redux react-redux

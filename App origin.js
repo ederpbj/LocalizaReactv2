@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, TextInput, Button} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
 import {connect} from 'react-redux';
+import store from './src/store';
 
 import Informe from './src/Informe';
 import FormYup from './src/FormYup';
