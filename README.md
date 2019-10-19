@@ -65,4 +65,11 @@ Tutorial maps
 
     https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
 
-    yarn add --dev redux react-redux
+
+>Bibliotecas
+
+    npm install --save react-navigation
+    npm install --save redux
+	npm install --save react-redux
+	npm install --save redux-thunk
+	yarn add react-navigation-stack

@@ -5,7 +5,10 @@ export default class PinMapa extends Component {
   render() {
     return (
       <View
-        style={(pinMapStyles.quadrado, {backgroundColor: this.props.fundo, width:80})}>
+        style={
+          (pinMapStyles.quadrado,
+          {backgroundColor: this.props.fundo, width: 80})
+        }>
         <Text style={pinMapStyles.texto}>{this.props.contaMedia}</Text>
       </View>
     );
