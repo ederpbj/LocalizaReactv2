@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
+import {NavigationActions, StackActions} from 'react-navigation';
 import {connect} from 'react-redux';
+import {checkLogin} from '../actions/';
 
 //importar as actions (AuthActions)
 
