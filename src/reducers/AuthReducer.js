@@ -12,7 +12,7 @@ const AuthReducer = (state = initialState, action) => {
 
   //Quando mudar status
   if (action.type == 'changeStatus') {
-    return {...state, email: action.payload.email};
+    return {...state, status: action.payload.status};
   }
 
   return state;

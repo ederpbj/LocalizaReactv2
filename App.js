@@ -8,22 +8,22 @@ import ReduxThunk from 'redux-thunk';
 import Reducers from './src/Reducers';
 
 import Preload from './src/screens/Preload';
-//import Home from './src/screens/Home';
-//import Login from './src/screens/Login';
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import Mapa from './src/screens/Mapa';
 
 let store = createStore(Reducers, applyMiddleware(ReduxThunk));
 
 //const AppNavigator = StackNavigator({
 
+//Desativar yellowBox
+console.disableYellowBox = true;
+
 const AppNavigator = createStackNavigator({
   Preload: Preload,
-  /* Home: {
-    screen: Home,
-  },
-  Login: {
-    screen: Login,
-  },
-  */
+  Home: Home,
+  Login: Login,
+  Mapa: Mapa,
 });
 
 export default class App extends Component {
